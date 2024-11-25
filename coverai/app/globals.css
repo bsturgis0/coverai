@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 220 40% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 40% 3%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 220 40% 3%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 220 40% 2%;
+ 
+    --secondary: 220 40% 4%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 220 40% 4%;
+    --muted-foreground: 210 40% 60%;
+ 
+    --accent: 220 40% 4%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 220 40% 4%;
+    --input: 220 40% 4%;
+    --ring: 185 75% 45%;
+
+    --cyan: 185 75% 45%;
+    --cyan-foreground: 220 40% 2%;
+ 
+    --radius: 0.5rem;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--cyan)),
+    transparent
+  );
+  animation: glow-line 3s ease-in-out infinite;
+}
